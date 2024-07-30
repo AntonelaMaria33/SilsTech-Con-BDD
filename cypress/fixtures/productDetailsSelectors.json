@@ -1,0 +1,5 @@
+{
+  "increaseQuantity": "button.qty-increase",
+  "addToCart": "button.add-to-cart-btn",
+  "viewCart": ".fa-cart-shopping"
+}

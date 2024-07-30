@@ -1,0 +1,6 @@
+{
+  "productInCart": ".cart-ctxt",
+  "removeProduct": ".delete-btn",
+  "cartName": ".cart-ctr",
+  "cartIsEmpty": ".empty-cart"
+}

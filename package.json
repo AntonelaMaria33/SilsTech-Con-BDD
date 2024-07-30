@@ -1,0 +1,28 @@
+{
+  "name": "challenge-silstech-con-bdd",
+  "version": "1.0.0",
+  "description": "Challenge para Silstech con BDD y Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonelaMaria33/SilsTech-con-BDD.git"
+  },
+  "author": "Verzilli Maria Antonela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonelaMaria33/SilsTech-con-BDD/issues"
+  },
+  "homepage": "https://github.com/AntonelaMaria33/SilsTech-con-BDD#readme",
+  "devDependencies": {
+    "cypress": "^13.13.1",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/e2e/Tests"
+  }
+}
