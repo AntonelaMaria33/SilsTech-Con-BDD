@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+
+    environment {
+        CYPRESS_CACHE_FOLDER = "${env.WORKSPACE}/.cache/Cypress"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clona mi repo
+                git 'https://github.com/AntonelaMaria33/SilsTech-Con-BDD.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Instala las dependencias de mi proyecto
+                script {
+                    if (fileExists('package-lock.json')) {
+                        sh 'npm ci'
+                    } else {
+                        sh 'npm install'
+                    }
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Ejecuta mis pruebas de Cypress
+                sh 'npx cypress run'
+            }
+        }
+
+        stage('Publish Results') {
+            steps {
+                // Publica los resultados de las pruebas (puede ser JUnit/allure o cualquier otro reporte)
+                junit 'cypress/results/*.xml'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Limpia el directorio de trabajo
+            cleanWs()
+        }
+    }
+}
